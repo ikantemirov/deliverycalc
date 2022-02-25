@@ -1,6 +1,7 @@
 package io.kantemirov;
 
 enum LoadMultiplier {
+
     VERY_HIGH(1.6f),
     HIGH(1.4f),
     RAISED(1.2f),

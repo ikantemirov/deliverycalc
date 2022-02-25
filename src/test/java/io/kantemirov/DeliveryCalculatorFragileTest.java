@@ -15,6 +15,9 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class DeliveryCalculatorFragileTest {
 
+    private static final Size SIZE = BIG;
+    private static final LoadMultiplier LOAD = HIGH;
+
     private final DeliveryCalculator calculator = new DeliveryCalculator();
 
     @ParameterizedTest(name = "{0}")
@@ -27,10 +30,10 @@ public class DeliveryCalculatorFragileTest {
 
     static Stream<Arguments> argumentsStream() {
         return Stream.of(
-                arguments("Fragile true, delivery zone over 30", FRAGILE_MAX_ZONE_KM + 1, BIG, true, HIGH, ZERO_COST),
-                arguments("Fragile true, delivery zone 30", FRAGILE_MAX_ZONE_KM, BIG, true, HIGH, 980),
-                arguments("Fragile true, delivery zone 29", FRAGILE_MAX_ZONE_KM - 1, BIG, true, HIGH, 980),
-                arguments("Fragile false", 25, BIG, false, HIGH, 560)
+                arguments("Fragile true, delivery zone over 30", FRAGILE_MAX_ZONE_KM + 1, SIZE, true, LOAD, ZERO_COST),
+                arguments("Fragile true, delivery zone 30", FRAGILE_MAX_ZONE_KM, SIZE, true, LOAD, 980),
+                arguments("Fragile true, delivery zone 29", FRAGILE_MAX_ZONE_KM - 1, SIZE, true, LOAD, 980),
+                arguments("Fragile false case", 25, SIZE, false, LOAD, 560)
         );
     }
 }

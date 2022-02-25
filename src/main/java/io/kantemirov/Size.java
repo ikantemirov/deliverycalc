@@ -1,6 +1,7 @@
 package io.kantemirov;
 
 enum Size {
+
     SMALL(100f),
     BIG(200f);
 

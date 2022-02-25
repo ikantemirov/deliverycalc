@@ -8,19 +8,20 @@ public class DeliveryCalculator {
     public static final int MAX_DISTANCE_DELIVERY = 100;
     public static final int FRAGILE_MAX_ZONE_KM = 30;
     public static final float FRAGILE_COST = 300f;
-    public static final int ZERO_COST = 0;
+    public static final float ZERO_COST = 0.0f;
 
-    private float cost = 0;
-    private float fragileCost = 0;
+    private float cost = 0.0f;
+    private float fragileCost = 0.0f;
 
     public float calculate(int deliveryZoneKm,
                            Size size,
                            boolean fragile,
                            LoadMultiplier loadMultiplier) {
 
-        if (deliveryZoneKm <= 0 ||
-                deliveryZoneKm > MAX_DISTANCE_DELIVERY ||
-                fragile && deliveryZoneKm > FRAGILE_MAX_ZONE_KM) {
+        if (deliveryZoneKm <= 0
+                || deliveryZoneKm > MAX_DISTANCE_DELIVERY
+                || fragile
+                && (deliveryZoneKm > FRAGILE_MAX_ZONE_KM)) {
             return ZERO_COST;
         }
 

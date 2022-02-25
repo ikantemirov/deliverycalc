@@ -14,6 +14,10 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class DeliveryCalculatorSizeTest {
 
+    private static final int DISTANCE = 25;
+    private static final boolean FRAGILE = false;
+    private static final LoadMultiplier LOAD = HIGH;
+
     private final DeliveryCalculator calculator = new DeliveryCalculator();
 
     @ParameterizedTest(name = "{0}")
@@ -26,8 +30,8 @@ public class DeliveryCalculatorSizeTest {
 
     static Stream<Arguments> argumentsStream() {
         return Stream.of(
-                arguments("Size case 1", 25, SMALL, false, HIGH, 420),
-                arguments("Size case 2", 25, BIG, false, HIGH, 560)
+                arguments("Size case 1", DISTANCE, SMALL, FRAGILE, LOAD, 420),
+                arguments("Size case 2", DISTANCE, BIG, FRAGILE, LOAD, 560)
         );
     }
 }
